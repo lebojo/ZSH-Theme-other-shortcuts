@@ -1,6 +1,9 @@
 # ZSH_Theme
-My ZSH_Theme
+My ZSH Theme
 
+![image](https://github.com/lebojo/ZSH_Theme/assets/48327357/bc5447c6-cdc1-4e8b-8020-1b3a7bf36d92)
+
+(Emoji, pwd, gitbranch)
 
 ### To set it:
 
