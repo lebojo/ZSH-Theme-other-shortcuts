@@ -27,7 +27,7 @@ vim ~/.zshrc
 ZSH_THEME="lebojo"
 ```
 
-##ZSHRC
+## ZSHRC
 I also added my .zshrc file who's in your user folder(~)
 This line is the most useful to add in your own ZSHRC (or copy mine)
 ```
