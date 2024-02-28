@@ -26,3 +26,11 @@ vim ~/.zshrc
 ```
 ZSH_THEME="lebojo"
 ```
+
+##ZSHRC
+I also added my .zshrc file who's in your user folder(~)
+This line is the most useful to add in your own ZSHRC (or copy mine)
+```
+#gcp -> git commit push, usage: _>gcp "commit message"
+alias gcp='f() { git add . && git commit -m "$@" && git push; unset -f f; }; f'
+```
