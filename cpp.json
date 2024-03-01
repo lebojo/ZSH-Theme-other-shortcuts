@@ -1,0 +1,73 @@
+{
+	// Snippets for C++
+	// Default location: AppData\Roaming\Code\User\snippets\cpp.json
+	// To open the snippets file, press Ctrl+Shift+P/F1 and type "Preferences: Configure User Snippets"
+	// Then select "C++" and paste the following code
+
+	"hpp_canonical": {
+		"prefix": "hppcanon", // The prefix for the snippet, to type in the editor
+		"body": [
+			"#ifndef ${TM_FILENAME_BASE}_HPP",
+            "# define ${TM_FILENAME_BASE}_HPP",
+            "",
+			"#include <iostream>",
+			"",
+            "class ${TM_FILENAME_BASE}",
+			"{",
+			"public:",
+			"    ${TM_FILENAME_BASE}();",
+			"    ~${TM_FILENAME_BASE}();",
+			"    ${TM_FILENAME_BASE}(const ${TM_FILENAME_BASE}& src);",
+			"    ${TM_FILENAME_BASE}& operator=(const ${TM_FILENAME_BASE}& rhs);",
+			"};",
+            "",
+            "#endif"
+		],
+		"description": "Canonical C++"
+	},
+	"cpp_canonical": {
+		"prefix": "cppcanon",
+		"body": [
+			"#include \"${TM_FILENAME_BASE}.hpp\"",
+			"",
+			"${TM_FILENAME_BASE}::${TM_FILENAME_BASE}()",
+			"{",
+			"	std::cout << \"${TM_FILENAME_BASE} default constructor called\" << std::endl;",
+			"}",
+			"",
+			"${TM_FILENAME_BASE}::~${TM_FILENAME_BASE}()",
+			"{",
+			"	std::cout << \"${TM_FILENAME_BASE} destructor called\" << std::endl;",
+			"}",
+			"",
+			"${TM_FILENAME_BASE}::${TM_FILENAME_BASE}(const ${TM_FILENAME_BASE}& src)",
+			"{",
+			"	*this = src;",
+			"	std::cout << \"${TM_FILENAME_BASE} copy constructor called\" << std::endl;",
+			"}",
+			"",
+			"${TM_FILENAME_BASE}& ${TM_FILENAME_BASE}::operator=(const ${TM_FILENAME_BASE}& rhs)",
+			"{",
+			"    if (this != &rhs)",
+			"    {",
+			"        //Don't forget to copy the attributes here",
+			"    }",
+			"    std::cout << \"${TM_FILENAME_BASE} assignment operator called\" << std::endl;",
+			"    return *this;",
+			"}"
+		],
+		"description": "Canonical C++"
+	},
+	"cppmain":{
+		"prefix": "cppmain",
+		"body":[
+		"#include \"${fileDirname}.hpp\"",
+		"",
+		"int main()",
+		"{",
+		"    return 0;",
+		"}"
+		],
+		"description": "Create a simple main in C++"
+	}
+}
