@@ -69,5 +69,12 @@
 		"}"
 		],
 		"description": "Create a simple main in C++"
+	},
+	"coutShortcut":{
+		"prefix": "cout",
+		"body":[
+		"std::cout << ${1} << std::endl;"
+		],
+		"description": "Shortcut for std::cout"
 	}
 }
