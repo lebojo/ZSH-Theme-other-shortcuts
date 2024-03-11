@@ -34,3 +34,8 @@ This line is the most useful to add in your own ZSHRC (or copy mine)
 #gcp -> git commit push, usage: _>gcp "commit message"
 alias gcp='f() { git add . && git commit -m "$@" && git push; unset -f f; }; f'
 ```
+
+## CPP.JSON
+It's some VSCODE Snippets I use for 42 school mandatory norm.
+It create shortcuts for canonical form and for make fast a main.
+(To make it work, copy in your own snippets file, you can configure it by pressing F1 and type: "snippets")
