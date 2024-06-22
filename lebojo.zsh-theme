@@ -31,7 +31,13 @@ local user_host="${PR_USER}%F{cyan}@${PR_HOST}"
 local current_dir="%B%F{cyan}%~%f%b"
 local git_branch='$(git_prompt_info)'
 
-PROMPT="╭─💻 ${current_dir} \$(ruby_prompt_info)${git_branch}
+local emoji="💻"
+
+if [[ -n "$VIRTUAL_ENV" ]]; then
+  current_dir="%F{magenta}(${${VIRTUAL_ENV:t}}) %F{cyan}%~"
+fi
+
+PROMPT="╭─${emoji} ${current_dir} \$(ruby_prompt_info)${git_branch}
 ╰─$PR_PROMPT"
 RPROMPT="${return_code}"
 
