@@ -27,8 +27,32 @@ fi
 
 local return_code="%(?..%F{red}%? ↵%f)"
 
+# Function to shorten pwd if longer than 30 characters
+function shortened_pwd() {
+  local pwd_display="${(%):-%~}"
+  if [[ ${#pwd_display} -gt 30 ]]; then
+    local parts=(${(s:/:)pwd_display})
+    local shortened_parts=()
+    local total=${#parts[@]}
+    for i in {1..$total}; do
+      local part="${parts[$i]}"
+      if [[ $i -eq $total ]]; then
+        # Keep the last part (current directory) complete
+        shortened_parts+=("$part")
+      elif [[ ${#part} -gt 3 ]]; then
+        shortened_parts+=("${part:0:3}")
+      else
+        shortened_parts+=("$part")
+      fi
+    done
+    echo "${(j:/:)shortened_parts}"
+  else
+    echo "$pwd_display"
+  fi
+}
+
 local user_host="${PR_USER}%F{cyan}@${PR_HOST}"
-local current_dir="%B%F{cyan}%~%f%b"
+local current_dir="%B%F{cyan}\$(shortened_pwd)%f%b"
 local git_branch='$(git_prompt_info)'
 
 local emoji="💻"
@@ -47,4 +71,3 @@ ZSH_THEME_RUBY_PROMPT_PREFIX="%F{red}‹"
 ZSH_THEME_RUBY_PROMPT_SUFFIX="›%f"
 
 }
-
